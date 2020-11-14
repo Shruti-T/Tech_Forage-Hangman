@@ -14,28 +14,22 @@
     <title>Hangman</title>
 </head>
 <body>
-    <!--1st Section-->
-    <div class="login-box">
-        <h1>SIGN IN</h1>
-        <form method="post" id="login">
-            <br>
-            <p>User ID:</p>
-            <input type="text" required id="text" name="text" placeholder="Enter User Id">
-            <br>
-            <p>Password:</p>
-            <input type="password" required id="otp" name="otp" placeholder="Enter Password">
-            <br>
-            <br>
-            <p class="instructions" id="status"></p>
-            <br>
-            <br>
-            <input type="submit" id="submit" name="submit" value="Login">
-            <br>
-        </form>
-    </div>
-
-   
-    <!--<form method="POST" id="page_2">
+    <form method="POST" id="page_2">
+        <div class="container">
+            <div class="login-box">
+                <h1>Welcome To The 2nd Round..</h1>
+                <br>
+                <br>
+                <p>User ID:</p>
+                <input type="text" required id="text" name="text" placeholder="Enter User Id">
+                <br>
+                <p>Password:</p>
+                <input type="password" required id="otp" name="otp" placeholder="Enter Password">
+                <br>
+                <br>
+                <p class="instructions" id="status">Credentials</p>
+            </div>
+        </div>
         <div class="container">
             <div class="question-box">
                 <div class="row">
@@ -47,10 +41,14 @@
                 <p>Answer:</p>
                 <input type="text" required id="text" name="text" placeholder="Your Answer.. ">
                 <br>
-                <input class="one" type="submit" id="submit" name="submit" value="Skip">
-                <input class="two" type="submit" id="submit" name="submit" value="Submit">
+                <p class="instructions" id="status">No. of attempts left</p>
+                <br>
+                <div class="buttons">
+                    <input class="one" type="submit" id="submit" name="submit" value="Submit">
+                    <input class="two" type="submit" id="submit" name="submit" value="Skip"> 
+                </div>
             </div>
         </div>
-       </form> -->
+    </form>
 </body>
 </html>

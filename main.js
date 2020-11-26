@@ -3,7 +3,7 @@ document.getElementById('submitbtn').style.display = 'none';
 document.getElementById('page2_view').style.display = 'none';
 
 var questions = ['what is my name?', 'where do you live?', 'what is your age?', 'where do you work?', 'what are your hobbies?'];
-//var hangman_Pics = ['../Tech_Forage-Hangman/Images/man_0.png', '../Tech_Forage-Hangman/Images/man_1.png', '../Tech_Forage-Hangman/Images/man_2.png', '../Tech_Forage-Hangman/Images/man_3.png', '../Tech_Forage-Hangman/Images/man_4.png']
+
 
 document.getElementById('loginbtn').onclick = function () {
     var Name = document.getElementById('userName').value;
@@ -68,38 +68,66 @@ function successful(mode) {
                 //document.getElementById('attemptsInstruction').innerHTML = 'wrong credentials';
 
             }
+
             else if (res.ReturnedStatus == 1) {
                 console.log('correct credentials');
                 console.log(res);
                 if (mode == 0) {
-                    document.getElementById('Que').innerHTML = questions[res.current_question];
-                    document.getElementById('loginInstruction').innerHTML = '';
-                    document.getElementById('loginbtn').style.display = 'none';
-                    document.getElementById('skipbtn').style.display = 'inline';
-                    document.getElementById('submitbtn').style.display = 'inline';
-                    document.getElementById('page2_view').style.display = 'block';
-                    //pic...
-                    document.getElementById('hangman_pic').src = `../Tech_Forage-Hangman/Images/man_${res.Attempts}.png`;
+                    if (res.WinStatus == 1) {
+                        console.log('won');//win page
+                        alert('You have cleared the round.');
+                    }
+                    else if (res.Attempts >= 5) {
+                        console.log('loss');//loss page
+                        alert('you have already played and used all your attempts!');
+                    }
+                    else {
+                        document.getElementById('Que').innerHTML = questions[res.current_question];
+
+                        document.getElementById('loginInstruction').innerHTML = '';
+                        document.getElementById('loginbtn').style.display = 'none';
+                        document.getElementById('skipbtn').style.display = 'inline';
+                        document.getElementById('submitbtn').style.display = 'inline';
+                        document.getElementById('page2_view').style.display = 'block';
+                        //pic...
+                        document.getElementById('hangman_pic').src = `../Tech_Forage-Hangman/Images/man_${res.Attempts}.png`;
+                    }
+
                 }
                 else if (mode == 1) {
                     if (res.Ans_Status == 1) //...correct answer
                     {
-                        document.getElementById('Que').innerHTML = questions[res.current_question];
-                        document.getElementById('Ans').value = '';
+                        if (res.WinStatus == 1) {
+                            console.log('winner');
+                            alert('You have clered the round!');
+                        }
+                        else {
+                            document.getElementById('Que').innerHTML = questions[res.current_question];
+                            document.getElementById('Ans').value = '';
+                            document.getElementById('attemptsInstruction').innerHTML = `${res.Attempts} no.of attempts used out of 5.`;
+                        }
+
+                        //win.......
                     }
+
                     else if (res.Ans_Status == 0)//else if  ..wrong answer
                     {
+                        if (res.Attempts >= 5) {
+                            console.log('loss');
+                            alert('Used all the attempts!');
+                        }
                         //pic update.
-                        document.getElementById('hangman_pic').src = `../Tech_Forage-Hangman/Images/man_${res.Attempts}.png`;
-                        document.getElementById('Ans').value = '';
+                        else {
+                            console.log('pic');
+                            document.getElementById('hangman_pic').src = `../Tech_Forage-Hangman/Images/man_${res.Attempts}.png`;
+                            document.getElementById('Ans').value = '';
+                            document.getElementById('attemptsInstruction').innerHTML = `${res.Attempts} no.of attempts used out of 5.`;
 
+                        }
                     }
-
-                    console.log(res);
                 }
-
+                console.log(res);
             }
-
         },
         error: function (res) {
             console.log('error');

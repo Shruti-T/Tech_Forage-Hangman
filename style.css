@@ -50,7 +50,7 @@ h1{
 
 .question-box{
     background: rgba(32, 6, 49, 0.7);
-    height: 100vh;
+	height: 140vh;
 }
 
 .col-sm-7{
@@ -154,4 +154,14 @@ h1{
 		margin-top: 20px;
 		margin-bottom: 20px;
 	}
-}	
+}
+
+/* code for backend and jS*/
+/*
+#skipbtn{
+	display: none;
+}
+
+#page2_view{
+	display: none;
+}*/

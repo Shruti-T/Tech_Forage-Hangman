@@ -51,15 +51,12 @@ document.getElementById('skipbtn').onclick = function () {
     if (Name == '' || Password == '') {
         document.getElementById('loginInstruction').innerHTML = 'Please fill in the details.';
     }
-    else if (document.getElementById('Que').innerHTML != questions[4]) {
+    else {
         mode = 2;
         serialJSON['name'] = Name;
         serialJSON['password'] = Password;
 
         successful(mode, serialJSON);
-    }
-    else {
-        alert('You can not skip the last question!!');
     }
     return false;
 }
@@ -102,22 +99,41 @@ function successful(mode) {
                         alert('you have already played and used all your attempts!');
                     }
                     else {
-                        document.getElementById('Que').innerHTML = questions[res.current_question];
 
-                        document.getElementById('loginInstruction').innerHTML = '';
+                        document.getElementById('Que').innerHTML = questions[res.current_question];
+                        console.log(res.current_question);
+
+                        document.getElementById('attemptsInstruction').innerHTML = `${res.Attempts} no.of attempts used out of 5.`;
                         document.getElementById('loginbtn').style.display = 'none';
                         document.getElementById('skipbtn').style.display = 'inline';
                         document.getElementById('submitbtn').style.display = 'inline';
                         document.getElementById('page2_view').style.display = 'block';
                         //pic...
                         document.getElementById('hangman_pic').src = `../Tech_Forage-Hangman/Images/man_${res.Attempts}.png`;
+
+                        if (res.SkipStatus == 1) {
+                            document.getElementById('skipbtn').style.display = 'none';
+                            document.getElementById('Ans').value = '';
+                        }
+                        else if (res.Attempts == 4) {
+                            document.getElementById('skipbtn').style.display = 'none';
+                            document.getElementById('attemptsInstruction').innerHTML = `${res.Attempts} no.of attempts used out of 5.`;
+                            document.getElementById('Ans').value = '';
+                        }
+
                     }
 
                 }
                 else if (mode == 1) {
+                    if (res.Attempts == 4) {
+                        document.getElementById('skipbtn').style.display = 'none';
+                        document.getElementById('attemptsInstruction').innerHTML = `${res.Attempts} no.of attempts used out of 5.`;
+                        document.getElementById('Ans').value = '';
+                    }
+
                     if (res.Ans_Status == 1) //...correct answer
                     {
-                        if (res.WinStatus == 1) {
+                        if (res.WinStatus == 1 || res.current_question == 5) {
                             console.log('winner');
                             alert('You have clered the round!');
                         }
@@ -125,6 +141,7 @@ function successful(mode) {
                             document.getElementById('Que').innerHTML = questions[res.current_question];
                             document.getElementById('Ans').value = '';
                             document.getElementById('attemptsInstruction').innerHTML = `${res.Attempts} no.of attempts used out of 5.`;
+
                         }
 
                         //win.......
@@ -148,12 +165,23 @@ function successful(mode) {
                 }
 
                 else if (mode == 2) {
-                    if (res.SkipStatus == 1) {
+                    if (res.Attempts == 4) {
+                        document.getElementById('skipbtn').style.display = 'none';
+                    }
+                    else if (res.WinStatus == 1) {
+                        console.log('winner');
+                        alert('You have clered the round!');
+                    }
+                    else if (res.SkipStatus == 1 || res.Attempts == 5) {
 
                         document.getElementById('hangman_pic').src = `../Tech_Forage-Hangman/Images/man_${res.Attempts}.png`;
                         document.getElementById('attemptsInstruction').innerHTML = `${res.Attempts} no.of attempts used out of 5.`;
                         document.getElementById('skipbtn').style.display = 'none';
-                        document.getElementById('Que').innerHTML = questions[res.current_question];
+                        if (res.Attempts == 5) {
+                            alert('you have won!!!');
+                        }
+                        else { document.getElementById('Que').innerHTML = questions[res.current_question]; }
+
                     }
                     else if (res.SkipStatus >= 1) {
                         document.getElementById('skipbtn').style.display = 'none';

@@ -44,6 +44,26 @@ document.getElementById('submitbtn').onclick = function () {
     return false;
 }
 
+document.getElementById('skipbtn').onclick = function () {
+    var Name = document.getElementById('userName').value;
+    var Password = document.getElementById('password').value;
+
+    if (Name == '' || Password == '') {
+        document.getElementById('loginInstruction').innerHTML = 'Please fill in the details.';
+    }
+    else if (document.getElementById('Que').innerHTML != questions[4]) {
+        mode = 2;
+        serialJSON['name'] = Name;
+        serialJSON['password'] = Password;
+
+        successful(mode, serialJSON);
+    }
+    else {
+        alert('You can not skip the last question!!');
+    }
+    return false;
+}
+
 
 var serialJSON = {};
 var mode;
@@ -125,6 +145,20 @@ function successful(mode) {
 
                         }
                     }
+                }
+
+                else if (mode == 2) {
+                    if (res.SkipStatus == 1) {
+
+                        document.getElementById('hangman_pic').src = `../Tech_Forage-Hangman/Images/man_${res.Attempts}.png`;
+                        document.getElementById('attemptsInstruction').innerHTML = `${res.Attempts} no.of attempts used out of 5.`;
+                        document.getElementById('skipbtn').style.display = 'none';
+                        document.getElementById('Que').innerHTML = questions[res.current_question];
+                    }
+                    else if (res.SkipStatus >= 1) {
+                        document.getElementById('skipbtn').style.display = 'none';
+                    }
+
                 }
                 console.log(res);
             }

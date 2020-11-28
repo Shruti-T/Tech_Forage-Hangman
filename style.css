@@ -115,44 +115,86 @@ h1{
 	color: #000;
 }
 
-@media only screen and (max-width:360px) {
+@media only screen and (max-width:320px) {
 	.login-box p{
-		margin-left: 70px;
-	}
-
-	.question-box{
-		height: 163vh;
+		margin-left: 73px;
 	}
 	
 	.login-box input{
-		width: 60%;
-		margin-left: 70px;
+		margin-left: 73px;
 	}
-	
-	.instructions{
-		font-size: 13px;
-		font-family: 'Times New Roman', Times, serif;
-		color: whitesmoke;
+
+	.question-box{
+		height: 160vh;
 	}
 	
 	.col-sm-7{
-		margin-left: 10px;
-		margin-bottom: 0px
+		text-align: center;
+	}
+	
+	.col-sm-4{
+		margin-bottom: 80px;
+
 	}
 	
 	.question-box p{
-		margin-left: 100px;
+		margin-left: 73px;
+		}
+	
+	.question-box input[type="text"]{
+		margin-left: 73px;
+	}
+
+	.instructions{
+		margin-right: 50px;
 	}
 	
 	.one{
-		margin-left: 96px;
-		margin-right: 30px;
+		margin-left: 70px;
+		margin-bottom: 10px;
 	}
 
 	.two{
-		margin-left: 96px;
-		margin-top: 20px;
-		margin-bottom: 20px;
+		margin-left: 70px;;
+	}
+}
+
+@media only screen and (max-width:360px) {
+	.login-box p{
+		margin-left: 78px;
+	}
+	
+	.login-box input{
+		margin-left: 78px;
+	}
+
+	.question-box{
+		height: 135vh;
+	}
+	
+	.col-sm-7{
+		text-align: center;
+	}
+	
+	.col-sm-4{
+		margin-bottom: 50px;
+	}
+	
+	.question-box p{
+		margin-left: 78px;
+		}
+	
+	.question-box input[type="text"]{
+		margin-left: 78px;
+	}
+	
+	.one{
+		margin-left: 88px;
+		margin-bottom: 10px;
+	}
+
+	.two{
+		margin-left: 88px;;
 	}
 }
 

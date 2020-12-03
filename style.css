@@ -22,6 +22,8 @@ h1{
 	padding: 0;
 	font-weight: bold;
 	margin-left: 250px;
+	font-weight: bold;
+	
 }
 
 .login-box input{
@@ -36,9 +38,21 @@ h1{
 	border-bottom: 1px solid #fff;
 	background: transparent;
 	outline: none;
-	height: 40px;
-	font-size: 16px;
+	height: 49px;
+	font-size: 18px;
 	color: #fff;
+}
+.login-box input[type="submit"]{
+	background: #14083b;
+	font-size: 18px;
+	border-radius: 9px ;
+	border-color: grey;
+	color: white;
+}
+.login-box input[type="submit"]:hover{
+	cursor: pointer;
+	background: #252ed5;
+	transition: 0.6s;
 }
 
 .login-box input[type="submit"]{ 	
@@ -58,17 +72,22 @@ h1{
 }
 
 .instructions{
+<<<<<<< HEAD
 	margin-left: 100px;
 	font-size: 15px;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	letter-spacing: 1px;
+=======
+	font-size: 16px;
+	font-family: sans-serif;
+>>>>>>> 48e8cf872644f67b17d46a89ac6f59dce93c8864
 	color: whitesmoke;
 }
 
 
 .question-box{
     background: rgba(32, 6, 49, 0.7);
-	height: 140vh;
+	height: 100vh;
 }
 
 .col-sm-7{
@@ -76,8 +95,9 @@ h1{
 	margin-left: 0px;
 	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 	color: #fff;
-	font-size: 20px;
+	font-size: 25px;
 	margin-bottom: 80px;
+	font-weight: bold;
 }
 
 .col-sm-4{
@@ -88,13 +108,13 @@ h1{
 .question-box .ans{
 	margin-left: 100px;
 	color: #fff;
-	font-family: Georgia, 'Times New Roman', Times, serif;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
 	font-weight: bold;
 }
 
 .question-box input[type="text"]{
 	width:50%;
-	margin-bottom: 60px; 
+	margin-bottom: 80px; 
 	margin-left: 95px;
 }
 
@@ -105,7 +125,7 @@ h1{
 	background: transparent;
 	outline: none;
 	height: 40px;
-	font-size: 16px;
+	font-size: 18px;
 	color: #fff;
 }
 
@@ -130,6 +150,7 @@ h1{
 {
 	cursor:pointer;
 	background:#252ed5;
+<<<<<<< HEAD
 	color: white;
 }
 
@@ -145,6 +166,10 @@ h1{
 	box-sizing: border-box;
 	border-radius: 10px;
 	padding: 70px 30px;
+=======
+	color: #fff;
+	transition: 0.7s;
+>>>>>>> 48e8cf872644f67b17d46a89ac6f59dce93c8864
 }
 
 @media only screen and (max-width:320px) {

@@ -40,7 +40,6 @@ document.getElementById('submitbtn').onclick = function () {
 
         successful(mode, serialJSON);
     }
-    console.log(serialJSON);
     return false;
 }
 

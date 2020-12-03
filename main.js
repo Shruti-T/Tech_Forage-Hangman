@@ -4,7 +4,7 @@ document.getElementById('page2_view').style.display = 'none';
 
 var questions = ['what is my name?', 'where do you live?', 'what is your age?', 'where do you work?', 'what are your hobbies?'];
 
-
+//Checking if input string is empty or not for mode 0.
 document.getElementById('loginbtn').onclick = function () {
     var Name = document.getElementById('userName').value;
     var Password = document.getElementById('password').value;
@@ -22,7 +22,7 @@ document.getElementById('loginbtn').onclick = function () {
     return false;
 };
 
-
+//checking input of answers for mode 1.
 document.getElementById('submitbtn').onclick = function () {
     var Name = document.getElementById('userName').value;
     var Password = document.getElementById('password').value;
@@ -44,6 +44,7 @@ document.getElementById('submitbtn').onclick = function () {
     return false;
 }
 
+//for mode 3.
 document.getElementById('skipbtn').onclick = function () {
     var Name = document.getElementById('userName').value;
     var Password = document.getElementById('password').value;
@@ -61,14 +62,13 @@ document.getElementById('skipbtn').onclick = function () {
     return false;
 }
 
-
+//post request.
 var serialJSON = {};
 var mode;
 
 function successful(mode) {
 
     serialJSON['mode'] = mode;
-    console.log(serialJSON);
 
     $.ajax({
         url: "https://script.google.com/macros/s/AKfycbxaAS7i8roOove79HVNrCiPn_4ZQ-4JCrAXsptqH35l4W_7HRwE/exec",
@@ -77,38 +77,33 @@ function successful(mode) {
 
         success: function (res) {
 
+            //Wrong username and password.
             if (res.ReturnedStatus == 0) {
-                console.log(res);
-                //document.getElementById('skipbtn').style.display = 'block';
-                console.log('wrong credentials');
                 document.getElementById('loginInstruction').innerHTML = 'wrong credentials';
-                //document.getElementById('attemptsInstruction').innerHTML = 'wrong credentials';
-
             }
 
+            //correct username and password.
             else if (res.ReturnedStatus == 1) {
-                console.log('correct credentials');
-                console.log(res);
                 if (mode == 0) {
+                    //if already played and won
                     if (res.WinStatus == 1) {
-                        console.log('won');//win page
-                        alert('You have cleared the round.');
+                        window.location.replace('Final-pg.html');
                     }
+                    //if already played and lost.
                     else if (res.Attempts >= 5) {
-                        console.log('loss');//loss page
-                        alert('you have already played and used all your attempts!');
+                        window.location.replace('Final-pg.html');
                     }
+                    //to start/continue playing. 
                     else {
-
                         document.getElementById('Que').innerHTML = questions[res.current_question];
-                        console.log(res.current_question);
 
                         document.getElementById('attemptsInstruction').innerHTML = `${res.Attempts} no.of attempts used out of 5.`;
+
                         document.getElementById('loginbtn').style.display = 'none';
                         document.getElementById('skipbtn').style.display = 'inline';
                         document.getElementById('submitbtn').style.display = 'inline';
                         document.getElementById('page2_view').style.display = 'block';
-                        //pic...
+
                         document.getElementById('hangman_pic').src = `../Tech_Forage-Hangman/Images/man_${res.Attempts}.png`;
 
                         if (res.SkipStatus == 1) {
@@ -120,22 +115,20 @@ function successful(mode) {
                             document.getElementById('attemptsInstruction').innerHTML = `${res.Attempts} no.of attempts used out of 5.`;
                             document.getElementById('Ans').value = '';
                         }
-
                     }
-
                 }
+
                 else if (mode == 1) {
                     if (res.Attempts == 4) {
                         document.getElementById('skipbtn').style.display = 'none';
                         document.getElementById('attemptsInstruction').innerHTML = `${res.Attempts} no.of attempts used out of 5.`;
                         document.getElementById('Ans').value = '';
                     }
-
-                    if (res.Ans_Status == 1) //...correct answer
-                    {
+                    //correct answer
+                    if (res.Ans_Status == 1) {
                         if (res.WinStatus == 1 || res.current_question == 5) {
-                            console.log('winner');
-                            alert('You have clered the round!');
+                            window.location.replace('Final-pg.html');
+                            //alert('You have clered the round!');
                         }
                         else {
                             document.getElementById('Que').innerHTML = questions[res.current_question];
@@ -143,23 +136,17 @@ function successful(mode) {
                             document.getElementById('attemptsInstruction').innerHTML = `${res.Attempts} no.of attempts used out of 5.`;
 
                         }
-
-                        //win.......
                     }
-
-                    else if (res.Ans_Status == 0)//else if  ..wrong answer
-                    {
+                    //else if  ..wrong answer
+                    else if (res.Ans_Status == 0) {
                         if (res.Attempts >= 5) {
-                            console.log('loss');
-                            alert('Used all the attempts!');
+                            window.location.replace('Final-pg.html');
                         }
                         //pic update.
                         else {
-                            console.log('pic');
                             document.getElementById('hangman_pic').src = `../Tech_Forage-Hangman/Images/man_${res.Attempts}.png`;
                             document.getElementById('Ans').value = '';
                             document.getElementById('attemptsInstruction').innerHTML = `${res.Attempts} no.of attempts used out of 5.`;
-
                         }
                     }
                 }
@@ -169,8 +156,7 @@ function successful(mode) {
                         document.getElementById('skipbtn').style.display = 'none';
                     }
                     else if (res.WinStatus == 1) {
-                        console.log('winner');
-                        alert('You have clered the round!');
+                        window.location.replace('Final-pg.html');
                     }
                     else if (res.SkipStatus == 1 || res.Attempts == 5) {
 
@@ -178,24 +164,20 @@ function successful(mode) {
                         document.getElementById('attemptsInstruction').innerHTML = `${res.Attempts} no.of attempts used out of 5.`;
                         document.getElementById('skipbtn').style.display = 'none';
                         if (res.Attempts == 5) {
-                            alert('you have won!!!');
+                            window.location.replace('Final-pg.html');
                         }
                         else { document.getElementById('Que').innerHTML = questions[res.current_question]; }
-
                     }
+
                     else if (res.SkipStatus >= 1) {
                         document.getElementById('skipbtn').style.display = 'none';
                     }
-
                 }
-                console.log(res);
             }
         },
+
         error: function (res) {
-            console.log('error');
+            alert('There has been a error! please refresh the page and try again.');
         }
     });
 }
-
-
-

@@ -17,43 +17,59 @@
 </head>
 
 <body>
-    <form method="POST" id="givenForm">
-        <div class="container ">
-            <div class="login-box">
-                <h1>TechForage Hangman</h1>
-                <br>
-                <br>
-                <p>User ID:</p>
-                <input type="text" required id="userName" name="text" placeholder="Enter User Id">
-                <br>
-                <p>Password:</p>
-                <input type="password" required id="password" name="otp" placeholder="Enter Password">
-                <br>
-                <br>
-                <h6 class="instructions" id="loginInstruction"></h6><br>
-                <input class="one loginBtn" type="submit" id="loginbtn" name="submit" value="Login">
-                <div id="page2_view">
-                    <div class="row">
-                        <div class="col-sm-3"></div>
-                        <div class="col-sm-4" id="Que"></div>
-                        <div class="col-sm-5"><img id="hangman_pic" src="../Tech_Forage-Hangman/Images/man_0.png"></div>
+
+    <div id="loading" style="display: none;">
+        <span id="loadingText" class="text-white">
+            Loding...
+        </span>
+    </div>
+    <div class="text-center">
+        <form method="POST" id="givenForm">
+            <div class="container ">
+                <div class="login-box">
+                    <h1>TechForage Hangman</h1>
+                    <br>
+                    <br>
+                    <p>User ID:</p>
+                    <input class="text-center" type="text" required id="userName" name="text"
+                        placeholder="Enter User Id">
+                    <br>
+                    <p>Password:</p>
+                    <input class="text-center" type="password" required id="password" name="otp"
+                        placeholder="Enter Password">
+                    <br>
+                    <br>
+                    <h6 class="instructions" id="loginInstruction"></h6><br>
+                    <input class="one loginBtn" type="submit" id="loginbtn" name="submit" value="Login">
+                    <div id="page2_view">
+                        <div class="row">
+                            <!-- <div class="col-sm-3"></div> -->
+                            <div class="col-md-6 text-center"><img class="img-fluid" id="hangman_pic"
+                                    src="../Tech_Forage-Hangman/Images/man_0.png"></div>
+                            <div class="col-md-6 text-center">
+                                <div id="Que" class="pt-md-0 pt-3"></div>
+                                <br>
+                                <p class="ans">Answer:</p>
+                                <input class="text-center" type="text" id="Ans" id="text" name="text"
+                                    placeholder="Your Answer.. ">
+                                <br>
+                                <br>
+                                <!--No.of attempts instrction-->
+                                <h6 class="instructions" id="attemptsInstruction"></h6>
+                                <br>
+                                <div class="buttons">
+                                    <input type="submit" id="submitbtn" name="submit" value="Submit">
+                                    <input type="submit" id="skipbtn" name="submit" value="Skip">
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-                    <br>
-                    <p class="ans">Answer:</p>
-                    <input type="text" id="Ans" id="text" name="text" placeholder="Your Answer.. ">
-                    <br>
-                    <br>
-                    <!--No.of attempts instrction-->
-                    <h6 class="instructions" id="attemptsInstruction"></h6>
-                    <br>
-                </div>
-                <div class="buttons">
-                    <input type="submit" id="submitbtn" name="submit" value="Submit">
-                    <input type="submit" id="skipbtn" name="submit" value="Skip">
+
                 </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
 </body>
 
 <script src="main.js"> </script>

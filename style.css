@@ -24,13 +24,11 @@ h1{
     margin: 0;
     padding: 0;
     font-weight: bold;
-    margin-left: 250px;
 }
 
 .login-box input{
     width: 50%;
     margin-bottom: 20px;
-    margin-left: 250px;
 }
 
 .login-box input[type="text"],input[type="password"]{
@@ -66,7 +64,6 @@ h1{
     word-spacing: 1.3px;
     letter-spacing: 0.7px;
     color: azure;
-    margin-left: 250px;
 }
 
 .row{
@@ -77,7 +74,6 @@ h1{
     margin: 0px;
     padding: 0px;
     width: 150px;
-    margin-left: 250px;
     margin-top: 15px;
     margin-bottom: 40px;
 }
@@ -86,7 +82,6 @@ h1{
     margin: 0px;
     padding: 0px;
     width: 150px;
-    margin-left: 15px;
     margin-top: 15px;
     margin-bottom: 40px;
 }
@@ -98,18 +93,6 @@ h1{
         padding: 0;
     }
 
-    .instructions{
-        margin-left: 40px;
-    }
-
-    .login-box p{
-        margin-left: 60px;
-    }
-    
-    .login-box input{
-        margin-left: 60px;
-    }
-    
     .row{
         margin: 0;
     }
@@ -120,13 +103,13 @@ h1{
     }
     
     #submitbtn{
-        margin-left: 60px;
+       
         margin-top: 15px;
         margin-bottom: 10px;
     }
     
     #skipbtn{
-        margin-left: 60px;
+        
         margin-bottom: 10px;
         
     } 
@@ -137,18 +120,6 @@ h1{
         margin: 0;
         padding: 0;
     }
-
-    .login-box p{
-        margin-left: 90px;
-    }
-    
-    .login-box input{
-        margin-left: 90px;
-    }
-
-    .instructions{
-        margin-left: 70px;
-    }
     
     .row{
         margin: 0;
@@ -160,13 +131,27 @@ h1{
     }
     
     #submitbtn{
-        margin-left: 90px;
+        
         margin-top: 15px;
         margin-bottom: 10px;
     }
     
-    #skipbtn{
-        margin-left: 90px;
-    }
+
 }
 
+#loading{
+    position:fixed;
+    width:100%;
+    height: 100vh;
+    top:0;
+    left:0;
+    background: rgba(0,0,0,0.8);
+    z-index:100;
+}
+
+#loadingText{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}

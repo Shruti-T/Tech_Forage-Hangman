@@ -69,6 +69,8 @@ function successful(mode) {
 
     serialJSON['mode'] = mode;
 
+    document.getElementById('loading').style.display = 'block';
+
     $.ajax({
         url: "https://script.google.com/macros/s/AKfycbxaAS7i8roOove79HVNrCiPn_4ZQ-4JCrAXsptqH35l4W_7HRwE/exec",
         type: 'POST',
@@ -83,14 +85,17 @@ function successful(mode) {
 
             //correct username and password.
             else if (res.ReturnedStatus == 1) {
+                document.getElementById('loginInstruction').innerHTML = '';
                 if (mode == 0) {
                     //if already played and won
                     if (res.WinStatus == 1) {
                         window.location.replace('Final-pg.html');
+                        //WON PAGE............
                     }
                     //if already played and lost.
                     else if (res.Attempts >= 5) {
                         window.location.replace('Final-pg.html');
+                        //FAIL PAGE.....
                     }
                     //to start/continue playing. 
                     else {
@@ -128,6 +133,7 @@ function successful(mode) {
                         if (res.WinStatus == 1 || res.current_question == 5) {
                             window.location.replace('Final-pg.html');
                             //alert('You have clered the round!');
+                            //WON PAGE....
                         }
                         else {
                             document.getElementById('Que').innerHTML = questions[res.current_question];
@@ -140,6 +146,7 @@ function successful(mode) {
                     else if (res.Ans_Status == 0) {
                         if (res.Attempts >= 5) {
                             window.location.replace('Final-pg.html');
+                            //FAIL PAGE.....
                         }
                         //pic update.
                         else {
@@ -156,6 +163,7 @@ function successful(mode) {
                     }
                     else if (res.WinStatus == 1) {
                         window.location.replace('Final-pg.html');
+                        //WON PAGE.......
                     }
                     else if (res.SkipStatus == 1 || res.Attempts == 5) {
 
@@ -164,6 +172,7 @@ function successful(mode) {
                         document.getElementById('skipbtn').style.display = 'none';
                         if (res.Attempts == 5) {
                             window.location.replace('Final-pg.html');
+                            //FAIL PAGE......
                         }
                         else { document.getElementById('Que').innerHTML = questions[res.current_question]; }
                     }
@@ -173,10 +182,12 @@ function successful(mode) {
                     }
                 }
             }
+            document.getElementById('loading').style.display = 'none';
         },
 
         error: function (res) {
             alert('There has been a error! please refresh the page and try again.');
+            document.getElementById('loading').style.display = 'none';
         }
     });
 }

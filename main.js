@@ -2,7 +2,7 @@ document.getElementById('skipbtn').style.display = 'none';
 document.getElementById('submitbtn').style.display = 'none';
 document.getElementById('page2_view').style.display = 'none';
 
-var questions = ['what is my name?', 'where do you live?', 'what is your age?', 'where do you work?', 'what are your hobbies?'];
+var questions = ['There are 7 girls in a bus. Each girl has 7 backpacks. In each backpack, there are 7 cats. For every cat, there are 7 kittens. How many legs are there in the bus?', 'where do you live?', 'what is your age?', 'where do you work?', 'what are your hobbies?'];
 
 //Checking if input string is empty or not for mode 0.
 document.getElementById('loginbtn').onclick = function () {
@@ -160,6 +160,7 @@ function successful(mode) {
                 else if (mode == 2) {
                     if (res.Attempts == 4) {
                         document.getElementById('skipbtn').style.display = 'none';
+                        document.getElementById('attemptsInstruction').innerHTML = `${res.Attempts} attempts used out of 5.`;
                     }
                     else if (res.WinStatus == 1) {
                         window.location.replace('Final-pg.html');

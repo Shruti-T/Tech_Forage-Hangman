@@ -94,14 +94,14 @@ function successful(mode) {
                     }
                     //if already played and lost.
                     else if (res.Attempts >= 5) {
-                        window.location.replace('Final-pg.html');
+                        window.location.replace('Final-pg2.html');
                         //FAIL PAGE.....
                     }
                     //to start/continue playing. 
                     else {
                         document.getElementById('Que').innerHTML = questions[res.current_question];
 
-                        document.getElementById('attemptsInstruction').innerHTML = `${res.Attempts} no.of attempts used out of 5.`;
+                        document.getElementById('attemptsInstruction').innerHTML = `${res.Attempts} attempts used out of 5.`;
 
                         document.getElementById('loginbtn').style.display = 'none';
                         document.getElementById('skipbtn').style.display = 'inline';
@@ -116,7 +116,7 @@ function successful(mode) {
                         }
                         else if (res.Attempts == 4) {
                             document.getElementById('skipbtn').style.display = 'none';
-                            document.getElementById('attemptsInstruction').innerHTML = `${res.Attempts} no.of attempts used out of 5.`;
+                            document.getElementById('attemptsInstruction').innerHTML = `${res.Attempts} attempts used out of 5.`;
                             document.getElementById('Ans').value = '';
                         }
                     }
@@ -125,7 +125,7 @@ function successful(mode) {
                 else if (mode == 1) {
                     if (res.Attempts == 4) {
                         document.getElementById('skipbtn').style.display = 'none';
-                        document.getElementById('attemptsInstruction').innerHTML = `${res.Attempts} no.of attempts used out of 5.`;
+                        document.getElementById('attemptsInstruction').innerHTML = `${res.Attempts} attempts used out of 5.`;
                         document.getElementById('Ans').value = '';
                     }
                     //correct answer
@@ -138,21 +138,21 @@ function successful(mode) {
                         else {
                             document.getElementById('Que').innerHTML = questions[res.current_question];
                             document.getElementById('Ans').value = '';
-                            document.getElementById('attemptsInstruction').innerHTML = `${res.Attempts} no.of attempts used out of 5.`;
+                            document.getElementById('attemptsInstruction').innerHTML = `${res.Attempts} attempts used out of 5.`;
 
                         }
                     }
                     //else if  ..wrong answer
                     else if (res.Ans_Status == 0) {
                         if (res.Attempts >= 5) {
-                            window.location.replace('Final-pg.html');
+                            window.location.replace('Final-pg2.html');
                             //FAIL PAGE.....
                         }
                         //pic update.
                         else {
                             document.getElementById('hangman_pic').src = `../Tech_Forage-Hangman/Images/man_${res.Attempts}.png`;
                             document.getElementById('Ans').value = '';
-                            document.getElementById('attemptsInstruction').innerHTML = `${res.Attempts} no.of attempts used out of 5.`;
+                            document.getElementById('attemptsInstruction').innerHTML = `${res.Attempts} attempts used out of 5.`;
                         }
                     }
                 }
@@ -168,10 +168,10 @@ function successful(mode) {
                     else if (res.SkipStatus == 1 || res.Attempts == 5) {
 
                         document.getElementById('hangman_pic').src = `../Tech_Forage-Hangman/Images/man_${res.Attempts}.png`;
-                        document.getElementById('attemptsInstruction').innerHTML = `${res.Attempts} no.of attempts used out of 5.`;
+                        document.getElementById('attemptsInstruction').innerHTML = `${res.Attempts} attempts used out of 5.`;
                         document.getElementById('skipbtn').style.display = 'none';
                         if (res.Attempts == 5) {
-                            window.location.replace('Final-pg.html');
+                            window.location.replace('Final-pg2.html');
                             //FAIL PAGE......
                         }
                         else { document.getElementById('Que').innerHTML = questions[res.current_question]; }

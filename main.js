@@ -72,7 +72,7 @@ function successful(mode) {
     document.getElementById('loading').style.display = 'block';
 
     $.ajax({
-        url: "https://script.google.com/macros/s/AKfycbxaAS7i8roOove79HVNrCiPn_4ZQ-4JCrAXsptqH35l4W_7HRwE/exec",
+        url: "https://script.google.com/macros/s/AKfycbw6AnSa1r5eMlVI4Ab8dTW0LSE3x3PNpmpAgldBVvV-RYzXBIGO94xEzA/exec",
         type: 'POST',
         data: serialJSON,
 

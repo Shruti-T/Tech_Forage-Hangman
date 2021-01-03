@@ -6,8 +6,8 @@ var questions = ['1) I have a 9 letter word, 123456789. All 9 letters can be com
 
 //Checking if input string is empty or not for mode 0.
 document.getElementById('loginbtn').onclick = function () {
-    var Name = document.getElementById('userName').value;
-    var Password = document.getElementById('password').value;
+    var Name = document.getElementById('userName').value.toLowerCase().trim();
+    var Password = document.getElementById('password').value.toLowerCase().trim();
 
     if (Name == '' || Password == '') {
         document.getElementById('loginInstruction').innerHTML = 'Please fill in the details.';
@@ -24,8 +24,8 @@ document.getElementById('loginbtn').onclick = function () {
 
 //checking input of answers for mode 1.
 document.getElementById('submitbtn').onclick = function () {
-    var Name = document.getElementById('userName').value;
-    var Password = document.getElementById('password').value;
+    var Name = document.getElementById('userName').value.toLowerCase().trim();
+    var Password = document.getElementById('password').value.toLowerCase().trim();
     var Answer = document.getElementById('Ans').value.toLowerCase().trim();
 
     if (Name == '' || Password == '' || Answer == '') {
@@ -45,8 +45,8 @@ document.getElementById('submitbtn').onclick = function () {
 
 //for mode 3.
 document.getElementById('skipbtn').onclick = function () {
-    var Name = document.getElementById('userName').value;
-    var Password = document.getElementById('password').value;
+    var Name = document.getElementById('userName').value.toLowerCase().trim();
+    var Password = document.getElementById('password').value.toLowerCase().trim();
 
     if (Name == '' || Password == '') {
         document.getElementById('loginInstruction').innerHTML = 'Please fill in the details.';

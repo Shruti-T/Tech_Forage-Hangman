@@ -10,6 +10,8 @@ body{
     color: #fff;
     box-sizing: border-box;
     padding-top: 30px;
+    margin-top: 70px;
+    /*height:150vh;*/ /*added*/
 }
 
 h1{
@@ -49,6 +51,7 @@ h1{
     color: #fff;
     font-size: 18px;
     border-radius: 20px;
+    width: 150px;                              /* login btn size change*/
 }
 
 .login-box input[type="submit"]:hover{

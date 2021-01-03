@@ -2,7 +2,7 @@ document.getElementById('skipbtn').style.display = 'none';
 document.getElementById('submitbtn').style.display = 'none';
 document.getElementById('page2_view').style.display = 'none';
 
-var questions = ['There are 7 girls in a bus. Each girl has 7 backpacks. In each backpack, there are 7 cats. For every cat, there are 7 kittens. How many legs are there in the bus?', 'where do you live?', 'what is your age?', 'where do you work?', 'what are your hobbies?'];
+var questions = ['1) I have a 9 letter word, 123456789. All 9 letters can be complaint 345 is very very relevant, if you\'re 6789, you must be intelligent. What is the word ?', '2) I can\'t go left, I can\'t go right. But I do move. I\'m forever stuck in one axis. What am I?', '3) I\'ve face but I\'m not a human, I\'ve hands but i don\'t have finger, I blow air but I don\'t have mouth.', '4) Can you find the smallest positive number that is divisible by 15 that consists ONLY of ones and zeroes (e.g. 10, 11, 100, etc.)?', '5) What only runs and never walks, what has a mouth and never eats, and has a bed but never sleeps?'];
 
 //Checking if input string is empty or not for mode 0.
 document.getElementById('loginbtn').onclick = function () {

@@ -105,14 +105,14 @@ h1{
     color: #fff;
     font-size: 18px;
     font-family: roman;
-    word-spacing: 2px;
+    word-spacing: 1px;
 	top: 50%;
 	left: 50%;
 	position: absolute;
 	transform: translate(-50%,-50%);
 	box-sizing: border-box;
 	border-radius: 10px;
-	padding: 70px 30px;
+    padding: 70px 20px;
 }
 
 @media only screen and (max-width: 320px){

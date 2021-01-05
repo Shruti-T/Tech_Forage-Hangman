@@ -1,15 +1,15 @@
 body, html {
     height: 100%;
     margin: 0;
-  }
+}
 
-  .bg {
+.bg {
     background-image: url(bg_img.jpg);
     height: 100%; 
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-  }
+}
 
 .overlay-box{
 	background: rgba(32, 6, 49, 0.7);

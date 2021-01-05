@@ -150,6 +150,7 @@ function successful(mode) {
                         }
                         //pic update.
                         else {
+                            alert('Wrong answer! Lost an attempt.');
                             document.getElementById('hangman_pic').src = `../Tech_Forage-Hangman/Images/man_${res.Attempts}.png`;
                             document.getElementById('Ans').value = '';
                             document.getElementById('attemptsInstruction').innerHTML = `${res.Attempts} attempts used out of 5.`;
@@ -167,7 +168,7 @@ function successful(mode) {
                         //WON PAGE.......
                     }
                     else if (res.SkipStatus == 1 || res.Attempts == 5) {
-
+                        alert('Answer skipped! Lost an attempt.');
                         document.getElementById('hangman_pic').src = `../Tech_Forage-Hangman/Images/man_${res.Attempts}.png`;
                         document.getElementById('attemptsInstruction').innerHTML = `${res.Attempts} attempts used out of 5.`;
                         document.getElementById('skipbtn').style.display = 'none';

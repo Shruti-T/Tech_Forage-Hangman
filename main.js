@@ -136,6 +136,7 @@ function successful(mode) {
                             //WON PAGE....
                         }
                         else {
+                            alert('Congrats! Correct Answer.')
                             document.getElementById('Que').innerHTML = questions[res.current_question];
                             document.getElementById('Ans').value = '';
                             document.getElementById('attemptsInstruction').innerHTML = `${res.Attempts} attempts used out of 5.`;

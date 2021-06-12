@@ -173,7 +173,7 @@ function successful(mode) {
 
             document.getElementById(
               "hangman_pic"
-            ).src = `../Tech_Forage-Hangman/Images/man_${res.Attempts}.png`;
+            ).src = `C:/Users/shrut/OneDrive/Desktop/GitHub/Tech_Forage-Hangman/Images/man_${res.Attempts}.png`;
 
             if (res.SkipStatus == 1) {
               document.getElementById("skipbtn").style.display = "none";
@@ -237,7 +237,7 @@ function successful(mode) {
               alert("Wrong answer! Lost an attempt.");
               document.getElementById(
                 "hangman_pic"
-              ).src = `../Tech_Forage-Hangman/Images/man_${res.Attempts}.png`;
+              ).src = `C:/Users/shrut/OneDrive/Desktop/GitHub/Tech_Forage-Hangman/Images/man_${res.Attempts}.png`;
               document.getElementById("Ans").value = "";
               document.getElementById(
                 "attemptsInstruction"
@@ -257,7 +257,7 @@ function successful(mode) {
             alert("Answer skipped! Lost an attempt.");
             document.getElementById(
               "hangman_pic"
-            ).src = `../Tech_Forage-Hangman/Images/man_${res.Attempts}.png`;
+            ).src = `C:/Users/shrut/OneDrive/Desktop/GitHub/Tech_Forage-Hangman/Images/man_${res.Attempts}.png`;
             document.getElementById(
               "attemptsInstruction"
             ).innerHTML = `${res.Attempts} attempts used out of 5.`;
